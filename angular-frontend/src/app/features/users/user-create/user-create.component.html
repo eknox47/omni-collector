@@ -1,0 +1,41 @@
+<div class="form-page">
+  <h2>
+    Welcome to Omni Collector!
+  </h2>
+  <p>
+    Create an account to get started!
+  </p>
+  
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div class="field-group">
+      <label>First Name</label>
+      <input placeholder="Bruce" type="text" formControlName="first_name">
+    </div>
+  
+    <div class="field-group">
+      <label>Last Name</label>
+      <input placeholder="Wayne" type="text" formControlName="last_name">
+    </div>
+  
+    <div class="field-group">
+      <label>Username</label>
+      <input placeholder="Batman" type="text" formControlName="username">
+    </div>
+  
+    <div class="field-group">
+      <label>Email</label>
+      <input placeholder="bruce.wayne@wayne.com" type="email" formControlName="email">
+    </div>
+  
+    <div class="field-group">
+      <label>Password</label>
+      <input placeholder="**********" type="password" formControlName="password">
+    </div>
+  
+    <button type="submit">
+      Create user
+    </button>
+  </form>
+  
+  <p>Already have an account? <a href="/user/sign-in">Sign in</a></p>
+</div>

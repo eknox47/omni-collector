@@ -31,8 +31,26 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Setup Application
-        run: composer setup
+      - name: Setup Backend
+        working-directory: laravel-backend
+        run: |
+          cp .env.example .env
+          composer install --no-interaction --prefer-dist
+          touch database/database.sqlite
+          php artisan key:generate
+          php artisan migrate --force
 
-      - name: Run CI Checks
-        run: composer ci:check
+      - name: Check Backend
+        working-directory: laravel-backend
+        run: |
+          composer lint:check
+          composer types:check
+          php artisan test
+
+      - name: Install Frontend
+        working-directory: angular-frontend
+        run: npm ci
+
+      - name: Build Frontend
+        working-directory: angular-frontend
+        run: npm run build

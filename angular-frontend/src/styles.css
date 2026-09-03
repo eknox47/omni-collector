@@ -1,0 +1,27 @@
+html, body {
+  min-height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 214, 10, 0.18), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(27, 113, 179, 0.38), transparent 30%),
+    linear-gradient(135deg, #04070b 0%, #0d1724 18%, #101c2a 35%, #172a3d 58%, #0b1320 100%);
+  background-attachment: fixed;
+  color: #e8edf5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 214, 10, 0.08), rgba(18, 72, 120, 0.14), rgba(0,0,0,0));
+  pointer-events: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
