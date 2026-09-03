@@ -8,10 +8,15 @@ use App\Models\UserBook;
 
 class UserBookController extends Controller
 {
+    public function index(Request $request)
+    {
+
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'integer', Rule::in([$request->user()->id])],
             'book_id' => [
                 'required',
                 'exists:books,id',

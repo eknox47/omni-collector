@@ -1,0 +1,38 @@
+<form [formGroup]="bookSearchForm" (ngSubmit)="submit()">
+	<label>
+        <span class="search-field">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input placeholder="Search omni-collector" type="search" formControlName="search">
+        </span>
+	</label>
+</form>
+
+@if (errorMessage) {
+	<p role="alert">{{ errorMessage }}</p>
+}
+
+@if (isLoading) {
+    <div class="loading-state" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Searching books</span>
+    </div>
+} @else {
+<ul>
+    @for (book of books; track book.google_book_id) {
+        <li>
+            <img [src]="book.image" [alt]="book.title">
+            <div>
+                <p>{{ book.title }}</p>
+                @if (book.authors) {
+                    <span> by {{ book.authors.join(', ') }}</span>
+                }
+            </div>
+            <button type="button" aria-label="Open book menu" title="Open book menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </li>
+    }
+</ul>
+}

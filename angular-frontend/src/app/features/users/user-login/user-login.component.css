@@ -1,0 +1,122 @@
+form {
+	display: flex;
+	flex-direction: column;
+	width: min(100% - 32px, 420px);
+	min-height: 430px;
+	margin: 10vh auto 0;
+	padding: 32px 24px 24px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 14px;
+	background: rgba(8, 14, 22, 0.78);
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.login-heading {
+	margin-bottom: 34px;
+}
+
+.eyebrow {
+	color: #f5c542;
+	font-size: 0.68rem;
+	font-weight: 800;
+	letter-spacing: 0.16em;
+}
+
+h1 {
+	margin: 10px 0 6px;
+	color: #f5f7fa;
+	font-size: clamp(2rem, 9vw, 2.7rem);
+	line-height: 1.05;
+}
+
+.login-heading p {
+	margin: 0;
+	color: #8f9aa7;
+	font-size: 0.95rem;
+}
+
+form label {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	margin-bottom: 20px;
+	color: #b9c2cc;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+form input {
+	width: 100%;
+	padding: 13px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.13);
+	border-radius: 8px;
+	outline: 0;
+	background: rgba(255, 255, 255, 0.045);
+	color: #f5f7fa;
+	font: inherit;
+	font-size: 1rem;
+	letter-spacing: 0;
+	text-transform: none;
+	transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+form input::placeholder {
+	color: #687482;
+}
+
+form input:focus {
+	border-color: #f5c542;
+	background: rgba(255, 255, 255, 0.07);
+	box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.12);
+}
+
+.field-error,
+form p[role="alert"] {
+	color: #ff9b91;
+	font-size: 0.76rem;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+form p[role="alert"] {
+	margin: 14px 0 0;
+}
+
+form button {
+	width: 100%;
+	min-height: 46px;
+	margin-top: auto;
+	border: 1px solid #f5c542;
+	border-radius: 8px;
+	background: #f5c542;
+	color: #17120a;
+	font: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+form button:hover {
+	border-color: #ffe28a;
+	background: #ffe28a;
+	transform: translateY(-1px);
+}
+
+form button:active {
+	transform: translateY(0);
+}
+
+form button:focus-visible {
+	outline: 2px solid rgba(245, 197, 66, 0.7);
+	outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+	form {
+		min-height: 400px;
+		margin-top: 6vh;
+		padding: 28px 20px 20px;
+	}
+}

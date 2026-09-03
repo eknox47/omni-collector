@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../../models/user';
+import { Book } from '../../models/book';
 
 @Injectable({
 	providedIn: 'root'
 })
 
-export class UserService {
+export class BookService {
 
 	private readonly apiUrl = 'http://localhost:8000/api';
 
 	constructor(private http: HttpClient) {}
 
-	createUser(user: Omit<User, 'id'> & { password: string }): Observable<User> {
-		return this.http.post<User>(
-			`${this.apiUrl}/user`,
-			user
-		)
-	};
+	searchBooks(search: string): Observable<Book[]> {
+		return this.http.get<Book[]>(`${this.apiUrl}/books`, {
+			params: { search },
+		});
+	}
 }

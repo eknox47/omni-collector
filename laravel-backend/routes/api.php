@@ -7,9 +7,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::post('/user', [UserController::class, 'store']);
 
-Route::apiResource('books', BookController::class);
-Route::post('/user-books', [UserBookController::class, 'store']);
+Route::middleware('auth:sanctum')->group(function (): void {
+	Route::get('/user', [AuthController::class, 'me']);
+	Route::post('/logout', [AuthController::class, 'logout']);
+	Route::apiResource('books', BookController::class);
+	Route::post('/user-books', [UserBookController::class, 'store']);
+});

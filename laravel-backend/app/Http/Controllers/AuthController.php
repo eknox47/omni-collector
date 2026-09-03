@@ -21,22 +21,23 @@ class AuthController extends Controller
             ]);
         }
 
-        $request->session()->regenerate();
-
         return response()->json([
             'user' => Auth::user(),
+            'token' => Auth::user()->createToken('angular-frontend')->plainTextToken,
         ], 200);
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->user()->currentAccessToken()->delete();
 
         return response()->json([
             'message' => 'Logged out',
         ]);
+    }
+
+    public function me(Request $request)
+    {
+        return response()->json($request->user());
     }
 }
