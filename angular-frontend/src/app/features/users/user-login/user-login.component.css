@@ -1,14 +1,8 @@
 form {
-	display: flex;
-	flex-direction: column;
-	width: min(100% - 32px, 420px);
-	min-height: 430px;
-	margin: 10vh auto 0;
-	padding: 32px 24px 24px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 14px;
-	background: rgba(8, 14, 22, 0.78);
-	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+	/* min-height: 1000px; */
+	padding-inline: 20px;
+	padding-top: 10em;
+	height: 100vh;
 }
 
 .login-heading {
@@ -23,7 +17,7 @@ form {
 }
 
 h1 {
-	margin: 10px 0 6px;
+	margin: 10px 0px;
 	color: #f5f7fa;
 	font-size: clamp(2rem, 9vw, 2.7rem);
 	line-height: 1.05;
@@ -87,7 +81,6 @@ form p[role="alert"] {
 form button {
 	width: 100%;
 	min-height: 46px;
-	margin-top: auto;
 	border: 1px solid #f5c542;
 	border-radius: 8px;
 	background: #f5c542;
@@ -113,10 +106,12 @@ form button:focus-visible {
 	outline-offset: 3px;
 }
 
-@media (max-width: 520px) {
-	form {
-		min-height: 400px;
-		margin-top: 6vh;
-		padding: 28px 20px 20px;
-	}
+.signup {
+	margin-top: 1em;
+	display: block;
+	text-align: center;
+}
+
+.signup a {
+	color: white;
 }

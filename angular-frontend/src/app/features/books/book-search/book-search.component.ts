@@ -43,4 +43,12 @@ export class BookSearchComponent {
       error: () => this.errorMessage = 'Unable to search for books.',
     });
   }
+
+  onCoverError(event: Event): void {
+    const image = event.target as HTMLImageElement;
+
+    if (!image.src.endsWith('/book-placeholder.svg')) {
+      image.src = '/book-placeholder.svg';
+    }
+  }
 }

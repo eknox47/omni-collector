@@ -35,7 +35,9 @@ return [
         ],
     ],
 
-    'google_books' => [
-        'key' => env('GOOGLE_BOOKS_API_KEY'),
+    'penguin_random_house' => [
+        'key' => env('PENGUIN_RANDOM_HOUSE_API_KEY'),
+        'domain' => env('PENGUIN_RANDOM_HOUSE_DOMAIN'),
+        'fake' => env('PENGUIN_RANDOM_HOUSE_FAKE_MODE', false),
     ],
 ];

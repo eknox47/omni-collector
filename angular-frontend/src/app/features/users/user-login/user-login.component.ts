@@ -37,7 +37,7 @@ export class UserLoginComponent {
 
     this.authService.loginUser(this.loginForm.getRawValue()).subscribe({
       next: () => {
-        void this.router.navigate(['/library']);
+        void this.router.navigate(['/books/search']);
       },
       error: (error) => {
         this.errorMessage = error.error?.message ?? 'Unable to log in.';

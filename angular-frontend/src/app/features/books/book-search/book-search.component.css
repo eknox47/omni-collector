@@ -1,12 +1,3 @@
-form {
-    display: block;
-    max-width: 720px;
-    margin: 10px;
-    padding: 0;
-    border: 0;
-    border-radius: 12px;
-}
-
 form label {
     display: flex;
     flex: 1;
@@ -14,6 +5,7 @@ form label {
     gap: 5px;
     min-width: 0;
     padding: 0;
+    padding-top: 1em;
     color: #9aa3ad;
     font-size: 0.72rem;
     font-weight: 700;
@@ -26,10 +18,13 @@ form .search-field {
     align-items: center;
     min-width: 0;
     padding-left: 16px;
-    border-radius: 5px;
-    background: rgba(8, 14, 22, 0.72);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    transition: background-color 160ms ease, box-shadow 160ms ease;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+form .search-field:focus-within {
+    box-shadow: inset 0 0 0 1px rgba(245, 197, 66, 0.65);
 }
 
 form .search-icon {
@@ -58,8 +53,9 @@ form input {
     min-width: 0;
     padding: 14px 16px;
     border: 0;
-    outline: 0;
     background: transparent;
+    box-shadow: none;
+    outline: 0;
     color: #e8edf5;
     font: inherit;
     font-size: 1rem;
@@ -67,11 +63,6 @@ form input {
 
 form input::placeholder {
     color: #687482;
-}
-
-form .search-field:focus-within {
-    background: rgba(8, 14, 22, 0.9);
-    box-shadow: inset 0 0 0 1px rgba(245, 197, 66, 0.65);
 }
 
 .loading-state {
@@ -102,38 +93,86 @@ form .search-field:focus-within {
 ul {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 5px;
+    margin: 15px 5px;
     padding: 0;
+    list-style: none;
 }
 
 li {
-    width: 100%;
     display: flex;
-    gap: 10px;
     align-items: center;
-    border-bottom: 2px solid rgb(11, 11, 11);
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+    padding: 10px;
+    border: 1px solid rgba(154, 163, 173, 0.16);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.035);
+    transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+li:hover {
+    border-color: rgba(245, 197, 66, 0.38);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
 }
 
 li img {
+    flex: 0 0 60px;
     width: 60px;
     height: 90px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    object-fit: cover;
 }
 
 li div {
-    padding-top: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    height: 90px;
+    justify-content: center;
+    min-width: 0;
+    gap: 5px;
 }
 
 li div p {
-    font-size: large;
-    margin-top: 0;
+    overflow: hidden;
+    margin: 0;
+    color: #f1f4f8;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 li div span {
-    font-size: small;
+    overflow: hidden;
+    color: #9aa3ad;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+li div .book-author {
+    color: #b7c0ca;
+}
+
+li div .book-meta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5px 10px;
+    color: #7f8a96;
+    font-size: 0.7rem;
+    font-style: italic;
+    text-align: left;
+}
+
+li div .book-meta span {
+    overflow: visible;
 }
 
 li button {
@@ -145,7 +184,7 @@ li button {
     width: 32px;
     height: 40px;
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 0;
     gap: 3px;
     padding: 0;
     border: 0;

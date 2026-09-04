@@ -18,14 +18,29 @@
     </div>
 } @else {
 <ul>
-    @for (book of books; track book.google_book_id) {
+    @for (book of books; track book.isbn) {
         <li>
-            <img [src]="book.image" [alt]="book.title">
+            <img
+                [src]="book.cover_url || '/book-placeholder.svg'"
+                [alt]="book.cover_url ? book.title : 'Book cover coming soon'"
+                (error)="onCoverError($event)"
+            >
             <div>
                 <p>{{ book.title }}</p>
-                @if (book.authors) {
-                    <span> by {{ book.authors.join(', ') }}</span>
+                @if (book.author) {
+                    <span class="book-author">by {{ book.author }}</span>
                 }
+                <div class="book-meta">
+                    @if (book.publisher) {
+                        <span>{{ book.publisher }}</span>
+                    }
+                    @if (book.published_date) {
+                        <span>{{ book.published_date }}</span>
+                    }
+                    @if (book.page_count !== null && book.page_count !== undefined) {
+                        <span>{{ book.page_count }} pages</span>
+                    }
+                </div>
             </div>
             <button type="button" aria-label="Open book menu" title="Open book menu">
                 <span></span>

@@ -10,26 +10,32 @@ class UserBookController extends Controller
 {
     public function index(Request $request)
     {
-
+        
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'user_id' => ['required', 'integer', Rule::in([$request->user()->id])],
-            'book_id' => [
-                'required',
-                'exists:books,id',
-                Rule::unique('user_books')->where(function ($query) use ($request) {
-                    return $query->where('user_id', $request->input('user_id'));
-                }),
-            ],
+            'collected', ['boolean'],
+            'read', ['boolean'],
+            'isbn' => ['required']
         ]);
+
+        //check if we have it stored already
+        $bookExists = Book::where(
+            'isbn',
+            $validated['isbn']
+        )->exists();
+
+        if(!$bookExists) {
+            $bookController = new BookController();
+            $bookController->store($request);
+        }
 
         $userBook = UserBook::firstOrCreate(
             [
                 'user_id' => $validated['user_id'],
-                'book_id' => $validated['book_id']
+                'isbn' => $validated['isbn']
             ],
             $validated
         );

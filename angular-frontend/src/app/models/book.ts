@@ -1,10 +1,9 @@
 export interface Book {
-  google_book_id: string;
+  isbn: string;
   title: string;
-  description: string | null;
+  author: string | null;
+  publisher: string | null;
   published_date: string | null;
   page_count: number | null;
-  publisher: string | null;
-  image: string | null;
-  authors: string[] | null;
+  cover_url: string | null;
 }

@@ -13,18 +13,34 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+
+            $table->string('isbn')->unique();
+            $table->unsignedBigInteger('work_id')->nullable();
+            $table->string('asin')->nullable();
+
             $table->string('title');
-            $table->string('google_book_id');
+            $table->string('subtitle')->nullable();
+            $table->string('author')->nullable();
             $table->text('description')->nullable();
-            $table->integer('page_count')->nullable();
             $table->string('publisher')->nullable();
-            $table->string('etag')->nullable();
-            $table->string('isbn_10')->nullable();
-            $table->string('isbn_13')->nullable();
-            $table->integer('average_rating')->nullable();
-            $table->integer('ratings_count')->nullable();
             $table->string('language')->nullable();
             $table->date('published_date')->nullable();
+
+            $table->integer('page_count')->nullable();
+
+            $table->string('format_code')->nullable();
+            $table->string('format_description')->nullable();
+
+            $table->decimal('price_amount', 8, 2)->nullable();
+            $table->string('price_currency', 3)->nullable();
+
+            $table->decimal('length', 6, 3)->nullable();
+            $table->decimal('width', 6, 3)->nullable();
+            $table->decimal('depth', 6, 3)->nullable();
+            $table->decimal('gross_weight', 6, 3)->nullable();
+
+            $table->string('cover_url')->nullable();
+
             $table->timestamps();
         });
     }
