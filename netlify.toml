@@ -1,0 +1,9 @@
+[build]
+  base = "angular-frontend"
+  command = "ng build"
+  publish = "dist/bat/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.csr.html"
+  status = 200
