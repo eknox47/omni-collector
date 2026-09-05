@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "omni-collector-frontend": {
+    "bat": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,6 +25,7 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "server": "src/main.server.ts",
@@ -64,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "omni-collector-frontend:build:production"
+              "buildTarget": "bat-collector-frontend:build:production"
             },
             "development": {
-              "buildTarget": "omni-collector-frontend:build:development"
+              "buildTarget": "bat-collector-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"

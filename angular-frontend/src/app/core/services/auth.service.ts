@@ -21,7 +21,7 @@ interface AuthResponse {
 
 export class AuthService {
 	private readonly apiUrl = 'http://localhost:8000/api';
-	private readonly tokenKey = 'omni_auth_token';
+	private readonly tokenKey = 'bat_auth_token';
 
     constructor(private http: HttpClient) {}
 

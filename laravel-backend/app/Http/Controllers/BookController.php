@@ -84,7 +84,7 @@ class BookController extends Controller
 
     public function show(string $id)
     { 
-        return Book::where('id', $id);
+        return Book::where('id', $id)->with('authors');
     }
 
     public function update(Request $request, string $id)

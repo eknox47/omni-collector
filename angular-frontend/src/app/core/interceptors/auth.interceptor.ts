@@ -3,7 +3,7 @@ import { PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 const apiUrl = 'http://localhost:8000/api';
-const tokenKey = 'omni_auth_token';
+const tokenKey = 'bat_auth_token';
 
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
   if (!request.url.startsWith(apiUrl)) {

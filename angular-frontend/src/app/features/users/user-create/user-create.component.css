@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .form-page {
     max-width: 600px;
     min-height: 1000px;
-    padding: 2rem;
+    padding-inline: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #b0b8c4;
 }
@@ -11,17 +13,39 @@ form {
     gap: 0.8rem;
 }
 
-h2 {
-    font-size: 2em;
-    text-align: center;
+.create-heading {
+    margin-bottom: 34px;
+    padding-top: 6em;
 }
 
-p {
-    text-align: center;
+.eyebrow {
+    color: #f5c542;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
 }
 
-a {
-    color: white;
+h1 {
+    margin: 10px 0;
+    color: #f5f7fa;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(2.8rem, 12vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.signin {
+    margin-top: 1em;
+	display: block;
+	text-align: center;
+    color: #b0b8c4;
+}
+
+.signin a {
+    color: inherit;
 }
 
 .field-group {

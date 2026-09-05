@@ -1,5 +1,5 @@
 {
-  "name": "omni-collector-frontend",
+  "name": "bat-collector-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:omni-collector-frontend": "node dist/omni-collector-frontend/server/server.mjs"
+    "serve:ssr:bat-collector-frontend": "node dist/bat-collector-frontend/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
@@ -20,6 +20,7 @@
     "@angular/platform-server": "^22.1.0",
     "@angular/router": "^22.1.0",
     "@angular/ssr": "^22.1.6",
+    "bootstrap": "^5.3.8",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"

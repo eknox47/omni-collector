@@ -1,35 +1,49 @@
 <div class="form-page">
-  <h2>
-    Welcome to Omni Collector!
-  </h2>
-  <p>
-    Create an account to get started!
-  </p>
+  <div class="create-heading">
+    <span class="eyebrow">BAT-COLLECTOR</span>
+    <h1>New in Gotham?</h1>
+    <p>Create an account to get started</p>
+  </div>
   
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <div class="field-group">
-      <label>First Name</label>
-      <input placeholder="Bruce" type="text" formControlName="first_name">
+      <label for="first-name">First Name</label>
+      <input id="first-name" placeholder="Bruce" type="text" formControlName="first_name" [class.is-invalid]="isFieldInvalid('first_name')" aria-describedby="first-name-error">
+      @if (getFieldError('first_name'); as validationError) {
+        <div id="first-name-error" class="invalid-feedback">{{ validationError }}</div>
+      }
     </div>
   
     <div class="field-group">
-      <label>Last Name</label>
-      <input placeholder="Wayne" type="text" formControlName="last_name">
+      <label for="last-name">Last Name</label>
+      <input id="last-name" placeholder="Wayne" type="text" formControlName="last_name" [class.is-invalid]="isFieldInvalid('last_name')" aria-describedby="last-name-error">
+      @if (getFieldError('last_name'); as validationError) {
+        <div id="last-name-error" class="invalid-feedback">{{ validationError }}</div>
+      }
     </div>
   
     <div class="field-group">
-      <label>Username</label>
-      <input placeholder="Batman" type="text" formControlName="username">
+      <label for="username">Username</label>
+      <input id="username" placeholder="Batman" type="text" formControlName="username" [class.is-invalid]="isFieldInvalid('username')" aria-describedby="username-error">
+      @if (getFieldError('username'); as validationError) {
+        <div id="username-error" class="invalid-feedback">{{ validationError }}</div>
+      }
     </div>
   
     <div class="field-group">
-      <label>Email</label>
-      <input placeholder="bruce.wayne@wayne.com" type="email" formControlName="email">
+      <label for="email">Email</label>
+      <input id="email" placeholder="bruce.wayne@wayne.com" type="email" formControlName="email" [class.is-invalid]="isFieldInvalid('email')" aria-describedby="email-error">
+      @if (getFieldError('email'); as validationError) {
+        <div id="email-error" class="invalid-feedback">{{ validationError }}</div>
+      }
     </div>
   
     <div class="field-group">
-      <label>Password</label>
-      <input placeholder="**********" type="password" formControlName="password">
+      <label for="password">Password</label>
+      <input id="password" placeholder="**********" type="password" formControlName="password" [class.is-invalid]="isFieldInvalid('password')" aria-describedby="password-error">
+      @if (getFieldError('password'); as validationError) {
+        <div id="password-error" class="invalid-feedback">{{ validationError }}</div>
+      }
     </div>
   
     <button type="submit">
@@ -37,5 +51,12 @@
     </button>
   </form>
   
-  <p>Already have an account? <a href="/users/login">Sign in</a></p>
+  <p class="signin">Already have an account? <a href="/users/login">Sign in</a></p>
+
+	@if (errorMessage()) {
+		<div class="alert alert-danger mt-3" role="alert">
+			{{ errorMessage() }}
+		</div>
+	}
+
 </div>

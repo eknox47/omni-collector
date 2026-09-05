@@ -7,3 +7,10 @@ export interface Book {
   page_count: number | null;
   cover_url: string | null;
 }
+
+export interface BookDetails extends Book {
+  description: string | null;
+  categories: string[];
+  language: string | null;
+  average_rating: number | null;
+}

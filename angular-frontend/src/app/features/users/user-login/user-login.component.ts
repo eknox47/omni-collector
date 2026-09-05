@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
@@ -12,8 +12,7 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class UserLoginComponent {
   loginForm: ReturnType<FormBuilder['group']>;
-  errorMessage = '';
-  successMessage = '';
+  errorMessage = signal('');
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,15 +31,14 @@ export class UserLoginComponent {
       return;
     }
 
-    this.errorMessage = '';
-    this.successMessage = '';
+    this.errorMessage.set('');
 
     this.authService.loginUser(this.loginForm.getRawValue()).subscribe({
       next: () => {
         void this.router.navigate(['/books/search']);
       },
       error: (error) => {
-        this.errorMessage = error.error?.message ?? 'Unable to log in.';
+        this.errorMessage.set(error.error?.message ?? 'Unable to log in.');
       },
     });
   }
